@@ -1,4 +1,4 @@
-//
+//Find the total area of n circles.
 #include<stdio.h>
 struct circle{
     float rad,area;
