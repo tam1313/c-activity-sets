@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<math.h>
 void input(int m,int n,int a[m][n]){
     printf("Enter the sudoku:\n");
     for(int i=0;i<m;i++){
@@ -40,16 +41,16 @@ int checkCols(int m,int n,int a[m][n]){
     return 1;
 }
 int checkCells(int m,int n,int a[m][n]){
-    for(int i=0;i<m;i+=3){
-        int x[m*n/9];
+    for(int i=0;i<m;i+=sqrt(m)){
+        int x[(int)sqrt(m*n)];
         int index=0;
-        for(int j=0;j<3;j++){
-            for(int k=i;k<i+n/3;k++){
+        for(int j=0;j<sqrt(n);j++){
+            for(int k=i;k<i+sqrt(n);k++){
                 x[index]=a[i+j][k];
                 index++;
             }
         }
-        if(check(m*n/9,x)==0) return 0;
+        if(check(sqrt(m*n),x)==0) return 0;
     }
     return 1;
 }
